@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naik International — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: #ffffff;
+      font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+      padding: 6rem 2rem;
+    }
+
+    /* ── Scrolling banner ── */
+    .banner-track {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      padding: 10px 0;
+      z-index: 10;
+    }
+    .banner-inner {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+    }
+    .banner-inner span {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #ff6b1a;
+      padding: 0 2.5rem;
+      font-weight: 500;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── Background orbs ── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float linear infinite;
+    }
+    .orb1 {
+      width: 400px; height: 400px;
+      background: #ff6b1a;
+      top: -120px; right: -100px;
+      opacity: 0.08;
+      animation-duration: 22s;
+    }
+    .orb2 {
+      width: 220px; height: 220px;
+      background: #111;
+      bottom: 20px; left: -80px;
+      opacity: 0.06;
+      animation-duration: 17s;
+      animation-delay: -6s;
+    }
+    .orb3 {
+      width: 120px; height: 120px;
+      background: #ff6b1a;
+      bottom: 120px; right: 80px;
+      opacity: 0.07;
+      animation-duration: 14s;
+      animation-delay: -3s;
+    }
+    @keyframes float {
+      0%   { transform: translateY(0px) scale(1); }
+      50%  { transform: translateY(-30px) scale(1.04); }
+      100% { transform: translateY(0px) scale(1); }
+    }
+
+    /* ── Content ── */
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .brand-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #aaa;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .accent-line {
+      width: 36px;
+      height: 2px;
+      background: #ff6b1a;
+      margin-bottom: 2.5rem;
+      border-radius: 2px;
+      animation: growline 1.2s ease forwards;
+      transform-origin: left;
+    }
+    @keyframes growline {
+      from { transform: scaleX(0); opacity: 0; }
+      to   { transform: scaleX(1); opacity: 1; }
+    }
+
+    /* ── Floating pill ── */
+    .float-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #111;
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 100px;
+      margin-bottom: 2.8rem;
+      font-weight: 400;
+      animation: bobpill 3s ease-in-out infinite;
+    }
+    .float-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ff6b1a;
+      animation: blink 1.4s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes bobpill {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-6px); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.25; }
+    }
+
+    /* ── Heading ── */
+    h1 {
+      font-size: 58px;
+      font-weight: 500;
+      color: #111;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.5rem;
+    }
+    h1 em {
+      color: #ff6b1a;
+      font-style: normal;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #999;
+      line-height: 1.9;
+      margin-bottom: 3rem;
+      max-width: 320px;
+      font-weight: 300;
+    }
+
+    /* ── Contact ── */
+    .divider {
+      width: 36px;
+      height: 1px;
+      background: #eee;
+      margin-bottom: 2rem;
+    }
+    .contact-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #bbb;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+    .email {
+      font-size: 14px;
+      color: #111;
+      text-decoration: none;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+      font-weight: 400;
+    }
+    .email:hover {
+      color: #ff6b1a;
+      border-color: #ff6b1a;
+    }
+
+    /* ── Bottom corner accent ── */
+    .corner-accent {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 220px;
+      height: 3px;
+      background: #ff6b1a;
+      opacity: 0.6;
+    }
+    .corner-accent-left {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #111;
+      opacity: 0.15;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      h1 { font-size: 38px; }
+      .orb1 { width: 260px; height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scrolling banner -->
+  <div class="banner-track">
+    <div class="banner-inner">
+      <span>Coming Soon</span><span>·</span>
+      <span>Naik International</span><span>·</span>
+      <span>Coming Soon</span><span>·</span>
+      <span>Naik International</span><span>·</span>
+      <span>Coming Soon</span><span>·</span>
+      <span>Naik International</span><span>·</span>
+      <span>Coming Soon</span><span>·</span>
+      <span>Naik International</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- Background orbs -->
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <!-- Main content -->
+  <div class="container">
+    <p class="brand-label">Naik International</p>
+    <div class="accent-line"></div>
+
+    <div class="float-pill">
+      <span class="dot"></span>
+      Coming Soon
+    </div>
+
+    <h1>Something<br>is <em>coming.</em></h1>
+    <p class="subtitle">We are currently working on something exciting. Stay tuned for the launch.</p>
+
+    <div class="divider"></div>
+    <p class="contact-label">Contact</p>
+    <a class="email" href="mailto:manupnaik639@gmail.com">manupnaik639@gmail.com</a>
+  </div>
+
+  <!-- Bottom accents -->
+  <div class="corner-accent"></div>
+  <div class="corner-accent-left"></div>
+
+</body>
+</html>
